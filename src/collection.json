@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "svg-icons-builder": {
+      "description": "A blank schematic.",
+      "factory": "./svg-icons-builder/index#svgIconsBuilder"
+    }
+  }
+}
