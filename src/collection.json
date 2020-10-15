@@ -4,6 +4,10 @@
     "svg-icons-builder": {
       "description": "A blank schematic.",
       "factory": "./svg-icons-builder/index#svgIconsBuilder"
+    },
+    "ng-add": {
+      "description": "A blank schematic.",
+      "factory": "./ng-add/index#ngAdd"
     }
   }
 }
