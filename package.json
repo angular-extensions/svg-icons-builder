@@ -4,7 +4,8 @@
   "description": "A blank schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "copy:files": "cp ../**/*.json dist/",
+    "test": "npm run build && npm run copy:files && jasmine dist/**/*_spec.js"
   },
   "keywords": [
     "schematics"
