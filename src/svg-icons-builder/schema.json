@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "conversionType": {
+      "type": "string",
+      "description": "Converting your icons to a single object, converting your icons to constants or converting your icons to single files.",
+      "default": "constants",
+      "enum": ["object", "constants", "files"]
+    }
+  }
+}
