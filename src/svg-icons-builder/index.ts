@@ -1,30 +1,35 @@
-  
-import { BuilderOutput, createBuilder } from '@angular-devkit/architect';
-import * as childProcess from 'child_process';
-import { JsonObject } from '@angular-devkit/core';
+import { BuilderOutput, createBuilder } from "@angular-devkit/architect";
+import { JsonObject } from "@angular-devkit/core";
+import { fork } from "child_process";
+import { join } from "path";
+import { ConstantsConversionOptions } from "svg-to-ts/src/lib/options/conversion-options";
 
-interface Options extends JsonObject {
-  command: string;
-  args: string[];
+interface Options extends ConstantsConversionOptions, JsonObject {
+  generateCompleteIconSet: boolean; // TODO: should this be exportCompleteIconSet
 }
 
 export default createBuilder<Options>((options, context) => {
-console.log("options, context", options)
+  context.logger.info(`Options: ${options}`);
   return new Promise<BuilderOutput>((resolve, reject) => {
-    context.reportStatus(`Executing "${options.command}"...`);
-    const child = childProcess.spawn(options.command, options.args, { stdio: 'pipe' });
-
-    child.stdout.on('data', (data) => {
-      context.logger.info(data.toString());
+    const child = fork(join(__dirname, `/svg-to-ts-wrapper.ts`), [], {
+      stdio: [0, 1, 2, "ipc"],
     });
-    child.stderr.on('data', (data) => {
-      context.logger.error(data.toString());
-      reject();
+    child.send(options);
+    child.on("message", ({ isError, data }) => {
+      if (isError) {
+        context.logger.error(data);
+        child.kill("SIGINT");
+        reject();
+      }
+      context.logger.info(data);
     });
-
-    context.reportStatus(`Done.`);
-    child.on('close', code => {
+    child.on("exit", (code) => {
       resolve({ success: code === 0 });
     });
+    child.on("error", (err) => {
+      context.logger.error(err.toString());
+      reject();
+    });
+    context.reportStatus(`Done.`);
   });
 });
