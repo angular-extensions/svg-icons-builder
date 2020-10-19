@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "conversionType": {
+      "type": "string",
+      "description": "Converting your icons to a single object, converting your icons to constants or converting your icons to single files.",
+      "default": "constants",
+      "enum": ["object", "constants", "files"]
+    },
+    "fileName": {
+      "type": "string",
+      "description": "File name of the generated constants file.",
+      "default": "my-icons"
+    },
+    "typeName": {
+      "type": "string",
+      "description": "Name of the generated type.",
+      "default": "myIcons"
+    },
+    "generateType": {
+      "type": "boolean",
+      "description": "Prevent generating enumeration type.",
+      "default": false
+    },
+    "generateTypeObject": {
+      "type": "boolean",
+      "description": "Generate type object.",
+      "default": false
+    },
+    "generateCompleteIconSet": {
+      "type": "boolean",
+      "description": "TODO: is this the same as: exportCompleteIconSet",
+      "default": false
+    },
+    "exportCompleteIconSet": {
+      "type": "boolean",
+      "description": "Specifies if the complete icon set should be exported or not (can be very handy for showcases)",
+      "default": false
+    },
+    "prefix": {
+      "type": "string",
+      "description": "Prefix for the generated svg constants.",
+      "default": "myIcon"
+    },
+    "interfaceName": {
+      "type": "string",
+      "description": "Name for the generated interface.",
+      "default": "MyIcon"
+    },
+    "srcFiles": {
+      "type": "array",
+      "description": "Input files matching the given filename pattern.",
+      "items": [
+        {
+          "type": "string"
+        }
+      ],
+      "default": "[\"/*.svg\"]"
+    },
+    "outputDirectory": {
+      "type": "string",
+      "description": "Name of the output directory.",
+      "default": "\"./dist\""
+    },
+    "svgoConfig": {
+      "type": "object",
+      "description": "A path to your svgoConfiguration JSON file or an inline configuration object."
+    },
+    "delimiter": {
+      "type": "string",
+      "description": "Delimiter which is used to generate the types and name properties.",
+      "default": "SNAKE",
+      "enum": ["CAMEL", "KEBAB", "SNAKE", "UPPER"]
+    }
+  }
+}

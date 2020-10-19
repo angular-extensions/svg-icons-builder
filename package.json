@@ -1,25 +1,31 @@
 {
-  "name": "svg-icons-builder",
+  "name": "@angular-extensions/svg-icons-builder",
   "version": "0.0.0",
   "description": "A blank schematics",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "build": "tsc -p tsconfig.json && npm run copy:files",
+    "build:watch": "tsc -p tsconfig.json --watch && npm run copy:files",
+    "copy:files": "cp ./builders.json ./package.json dist/ && cp ./src/*.json dist/ && cp ./src/svg-icons-builder/*.json ./dist/svg-icons-builder/",
+    "test": "ts-node node_modules/jasmine/bin/jasmine src/**/*_spec.ts"
   },
   "keywords": [
     "schematics"
   ],
   "author": "",
   "license": "MIT",
-  "schematics": "./src/collection.json",
+  "schematics": "./collection.json",
+  "builders": "./builders.json",
   "dependencies": {
     "@angular-devkit/core": "^10.1.6",
     "@angular-devkit/schematics": "^10.1.6",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "svg-to-ts": "^5.6.1"
   },
   "devDependencies": {
-    "@types/node": "^12.11.1",
+    "@angular-devkit/architect": "^0.1001.7",
     "@types/jasmine": "~3.5.0",
-    "jasmine": "^3.5.0"
+    "@types/node": "^12.11.1",
+    "jasmine": "^3.5.0",
+    "ts-node": "^9.0.0"
   }
 }
