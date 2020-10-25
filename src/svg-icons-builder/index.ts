@@ -21,27 +21,33 @@ interface Options extends CommonConversionOptions, JsonObject {
 
 export default createBuilder<Options>((conversionOptions: Options, context: BuilderContext) => {
   return new Promise<BuilderOutput>(async (resolve, reject) => {
-    if (!conversionOptions) {
-      reject();
-    }
+    try {
+      if (!conversionOptions) {
+        reject();
+      }
 
-    if (conversionOptions.conversionType === ConversionType.FILES) {
-      context.logger.info('We are using the conversion type "files"');
-      await convertToFiles((conversionOptions as unknown) as FileConversionOptions);
-    }
+      if (conversionOptions.conversionType === ConversionType.FILES) {
+        context.logger.info('We are using the conversion type "files"');
+        await convertToFiles((conversionOptions as unknown) as FileConversionOptions);
+      }
 
-    if (conversionOptions.conversionType === ConversionType.CONSTANTS) {
-      context.logger.info('We are using the conversion type "constants"');
-      await convertToConstants((conversionOptions as unknown) as ConstantsConversionOptions);
-    }
+      if (conversionOptions.conversionType === ConversionType.CONSTANTS) {
+        context.logger.info('We are using the conversion type "constants"');
+        await convertToConstants((conversionOptions as unknown) as ConstantsConversionOptions);
+      }
 
-    if (conversionOptions.conversionType === ConversionType.OBJECT) {
-      context.logger.info('We are using the conversion type "object"');
-      await convertToSingleObject((conversionOptions as unknown) as ObjectConversionOptions);
-    }
+      if (conversionOptions.conversionType === ConversionType.OBJECT) {
+        context.logger.info('We are using the conversion type "object"');
+        await convertToSingleObject((conversionOptions as unknown) as ObjectConversionOptions);
+      }
 
-    resolve();
-    context.reportStatus(`Done.`);
-    process.exit(0);
+      resolve();
+      context.reportStatus(`Done.`);
+      process.disconnect();
+      process.exit(0);
+    } catch (error) {
+      process.disconnect();
+      process.exit(1);
+    }
   });
 });
