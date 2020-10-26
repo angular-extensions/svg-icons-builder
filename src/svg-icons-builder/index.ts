@@ -1,35 +1,53 @@
-import { BuilderOutput, createBuilder } from '@angular-devkit/architect';
+import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
-import { fork } from 'child_process';
-import { join } from 'path';
-import { ConstantsConversionOptions } from 'svg-to-ts/src/lib/options/conversion-options';
+/*
+ TODO - we should export this from svg-to-ts - otherwise we rely on internals and it would break if
+ we refactor something in svg-to-ts
+ */
+import {
+  CommonConversionOptions,
+  ConstantsConversionOptions,
+  ConversionType,
+  FileConversionOptions,
+  ObjectConversionOptions,
+} from 'svg-to-ts/src/lib/options/conversion-options';
+import { convertToFiles } from 'svg-to-ts/src/lib/converters/files.converter';
+import { convertToConstants } from 'svg-to-ts/src/lib/converters/constants.converter';
+import { convertToSingleObject } from 'svg-to-ts/src/lib/converters/object.converter';
 
-interface Options extends ConstantsConversionOptions, JsonObject {
+interface Options extends CommonConversionOptions, JsonObject {
   generateCompleteIconSet: boolean; // TODO: should this be exportCompleteIconSet
 }
 
-export default createBuilder<Options>((options, context) => {
-  context.logger.info(`Options: ${options}`);
-  return new Promise<BuilderOutput>((resolve, reject) => {
-    const child = fork(join(__dirname, `/svg-to-ts-wrapper.ts`), [], {
-      stdio: [0, 1, 2, 'ipc'],
-    });
-    child.send(options);
-    child.on('message', ({ isError, data }) => {
-      if (isError) {
-        context.logger.error(data);
-        child.kill('SIGINT');
+export default createBuilder<Options>((conversionOptions: Options, context: BuilderContext) => {
+  return new Promise<BuilderOutput>(async (resolve, reject) => {
+    try {
+      if (!conversionOptions) {
         reject();
       }
-      context.logger.info(data);
-    });
-    child.on('exit', (code) => {
-      resolve({ success: code === 0 });
-    });
-    child.on('error', (err) => {
-      context.logger.error(err.toString());
-      reject();
-    });
-    context.reportStatus(`Done.`);
+
+      if (conversionOptions.conversionType === ConversionType.FILES) {
+        context.logger.info('We are using the conversion type "files"');
+        await convertToFiles((conversionOptions as unknown) as FileConversionOptions);
+      }
+
+      if (conversionOptions.conversionType === ConversionType.CONSTANTS) {
+        context.logger.info('We are using the conversion type "constants"');
+        await convertToConstants((conversionOptions as unknown) as ConstantsConversionOptions);
+      }
+
+      if (conversionOptions.conversionType === ConversionType.OBJECT) {
+        context.logger.info('We are using the conversion type "object"');
+        await convertToSingleObject((conversionOptions as unknown) as ObjectConversionOptions);
+      }
+
+      resolve();
+      context.reportStatus(`Done.`);
+      process.disconnect();
+      process.exit(0);
+    } catch (error) {
+      process.disconnect();
+      process.exit(1);
+    }
   });
 });
