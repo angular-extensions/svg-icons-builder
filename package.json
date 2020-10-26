@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && npm run copy:files",
     "build:watch": "tsc -p tsconfig.json --watch && npm run copy:files",
-    "copy:files": "cp ./builders.json ./package.json dist/ && cp ./src/*.json dist/ && cp ./src/svg-icons-builder/*.json ./dist/svg-icons-builder/",
+    "copy:files": "cp ./package.json dist/ && cp ./src/*.json dist/ && cp ./src/svg-icons-builder/*.json ./dist/svg-icons-builder/",
     "format:write": "prettier --write ./src/**/*.ts",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@angular-devkit/architect": "^0.1001.7",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.11.1",
     "husky": "^4.3.0",
@@ -36,6 +38,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "pretty-quick --staged"
     }
   }
