@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "svg-icons-builder": {
+      "implementation": "./svg-icons-builder",
+      "schema": "./svg-icons-builder/schema.json",
+      "description": "Build SVG icons."
+    }
+  }
+}
