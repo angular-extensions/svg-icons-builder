@@ -1,4 +1,4 @@
-# svg-icons-builder WIP
+# svg-icons-builder (WIP - not yet available on npm)
 
 The svg-icons-builder is a Angular builder for the [svg-to-ts](https://github.com/kreuzerk/svg-to-ts) project. It can be used to convert SVG icons inside an Angular library or SPA to an object, to constants or even to individual TypeScript or JavaScript files.
 Find out more on the official [svg-to-ts docs](https://github.com/kreuzerk/svg-to-ts).
