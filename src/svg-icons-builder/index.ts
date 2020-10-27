@@ -41,11 +41,10 @@ export default createBuilder<Options>((conversionOptions: Options, context: Buil
         await convertToSingleObject((conversionOptions as unknown) as ObjectConversionOptions);
       }
 
-      resolve();
+      resolve({ success: true });
       context.reportStatus(`Done.`);
-      process.disconnect();
-      process.exit(0);
     } catch (error) {
+      context.reportStatus('Error');
       process.disconnect();
       process.exit(1);
     }

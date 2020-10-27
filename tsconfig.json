@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "tsconfig",
+    "baseUrl": ".",
     "lib": ["es2018", "dom"],
     "declaration": true,
     "module": "commonjs",
@@ -18,8 +18,8 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es6",
-    "types": ["jest", "node"]
+    "types": ["node"]
   },
   "include": ["src/**/*"],
-  "exclude": ["src/*/files/**/*"]
+  "exclude": ["src/*/files/**/*", "src/**/*.spec.ts", "src/package.json"]
 }

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && npm run copy:files",
     "build:watch": "tsc -p tsconfig.json --watch && npm run copy:files",
-    "copy:files": "cp ./package.json dist/ && cp ./src/*.json dist/ && cp ./src/svg-icons-builder/*.json ./dist/svg-icons-builder/",
+    "copy:files": "cp ./src/builders.json ./src/collection.json dist/ && cp ./package.json dist/ && cp ./src/svg-icons-builder/*.json ./dist/svg-icons-builder/",
     "format:write": "prettier --write ./src/**/*.ts",
     "test": "jest",
     "test:watch": "jest --watch"
