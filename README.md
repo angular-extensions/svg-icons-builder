@@ -50,7 +50,7 @@ In order to run the builder you have to add a new npm script to your `package.js
 "genrate-icons": "ng run name-of-your-app:generate-icons"
 ```
 
-## Contributors ✨
+## Core Team ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
