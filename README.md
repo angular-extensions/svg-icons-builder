@@ -2,7 +2,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -60,6 +60,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://www.kaylaaltepeter.com/"><img src="https://avatars1.githubusercontent.com/u/5103752?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kayla Altepeter</b></sub></a><br /><a href="https://github.com/@angular-extensions/@angular-extensions/svg-icons-builder/commits?author=kaltepeter" title="Code">💻</a> <a href="https://github.com/@angular-extensions/@angular-extensions/svg-icons-builder/issues?q=author%3Akaltepeter" title="Bug reports">🐛</a> <a href="https://github.com/@angular-extensions/@angular-extensions/svg-icons-builder/commits?author=kaltepeter" title="Documentation">📖</a> <a href="#ideas-kaltepeter" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/@angular-extensions/@angular-extensions/svg-icons-builder/commits?author=kaltepeter" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://medium.com/@kevinkreuzer"><img src="https://avatars0.githubusercontent.com/u/5468954?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kevin Kreuzer</b></sub></a><br /><a href="https://github.com/@angular-extensions/@angular-extensions/svg-icons-builder/commits?author=kreuzerk" title="Code">💻</a> <a href="https://github.com/@angular-extensions/@angular-extensions/svg-icons-builder/issues?q=author%3Akreuzerk" title="Bug reports">🐛</a> <a href="https://github.com/@angular-extensions/@angular-extensions/svg-icons-builder/commits?author=kreuzerk" title="Documentation">📖</a> <a href="#ideas-kreuzerk" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/@angular-extensions/@angular-extensions/svg-icons-builder/commits?author=kreuzerk" title="Tests">⚠️</a></td>
   </tr>
 </table>
 
