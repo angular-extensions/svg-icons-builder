@@ -7,7 +7,8 @@
     "build:watch": "tsc -p tsconfig.json --watch && npm run copy:files",
     "copy:files": "cp ./package.json dist/ && cp ./src/*.json dist/ && cp ./src/svg-icons-builder/*.json ./dist/svg-icons-builder/",
     "format:write": "prettier --write ./src/**/*.ts",
-    "test": "ts-node node_modules/jasmine/bin/jasmine src/**/*_spec.ts"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "keywords": [
     "schematics"
@@ -26,12 +27,13 @@
     "@angular-devkit/architect": "^0.1001.7",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@types/jasmine": "~3.5.0",
+    "@types/jest": "^26.0.15",
     "@types/node": "^12.11.1",
     "husky": "^4.3.0",
-    "jasmine": "^3.5.0",
+    "jest": "^26.6.1",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
+    "ts-jest": "^26.4.2",
     "ts-node": "^9.0.0"
   },
   "husky": {
