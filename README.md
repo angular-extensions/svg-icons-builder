@@ -11,6 +11,12 @@ Find out more on the official [svg-to-ts docs](https://github.com/kreuzerk/svg-t
 
 ## Usage
 
+### Installation
+
+NPM: `npm install @angular-extensions/svg-icons-builder`
+
+Angular CLI: `ng add @angular-extensions/svg-icons-builder`
+
 ### Configuring the builder
 
 To use the builder you need to add a new entry to your `architect` object inside your `angular.json`. In our example we call it `generate-icons`. You then need to specify the following properties:
