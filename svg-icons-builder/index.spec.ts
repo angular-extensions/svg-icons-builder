@@ -44,7 +44,7 @@ describe('svg-icons-builder', () => {
 
     // A "run" can have multiple outputs, and contains progress information.
     const run = await architect.scheduleBuilder(
-      'svg-icons-builder:svg-icons-builder',
+      '@angular-extensions/svg-icons-builder:svg-icons-builder',
       {
         ...defaultCommonOptions,
         conversionType: 'constants',

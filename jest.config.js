@@ -4,7 +4,7 @@ module.exports = {
       tsconfig: 'tsconfig.spec.json',
     },
   },
-  roots: ['<rootDir>/src'],
+  roots: ['<rootDir>/schematics', '<rootDir>/svg-icons-builder'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
