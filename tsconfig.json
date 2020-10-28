@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "tsconfig",
+    "baseUrl": ".",
     "lib": ["es2018", "dom"],
     "declaration": true,
     "module": "commonjs",
@@ -12,14 +12,13 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "outDir": "dist",
-    "rootDir": "src/",
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strictNullChecks": true,
     "target": "es6",
-    "types": ["jest", "node"]
+    "types": ["node"]
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/*/files/**/*"]
+  "include": ["schematics/**/*", "svg-icons-builder"],
+  "exclude": ["svg-icons-builder/*/files/**/*", "**/*.spec.ts"]
 }

@@ -24,7 +24,7 @@ describe('svg-icons-builder', () => {
   beforeEach(async () => {
     const registry = new schema.CoreSchemaRegistry();
     registry.addPostTransform(schema.transforms.addUndefinedDefaults);
-    const workspaceRoot = join(__dirname, '..', '..');
+    const workspaceRoot = join(__dirname, '..');
 
     // TestingArchitectHost() takes workspace and current directories.
     // Since we don't use those, both are the same in this case.
@@ -69,6 +69,5 @@ describe('svg-icons-builder', () => {
     await run.stop();
 
     expect(logs).toContain('We are using the conversion type "constants"');
-    expect(logs).toContain('svg-to-ts completed.');
   });
 });
