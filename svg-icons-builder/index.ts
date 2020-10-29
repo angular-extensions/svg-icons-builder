@@ -1,31 +1,27 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
-/*
- TODO - we should export this from svg-to-ts - otherwise we rely on internals and it would break if
- we refactor something in svg-to-ts
- */
 import {
   CommonConversionOptions,
   ConstantsConversionOptions,
   ConversionType,
   FileConversionOptions,
   ObjectConversionOptions,
-} from 'svg-to-ts/src/lib/options/conversion-options';
-import { convertToFiles } from 'svg-to-ts/src/lib/converters/files.converter';
-import { convertToConstants } from 'svg-to-ts/src/lib/converters/constants.converter';
-import { convertToSingleObject } from 'svg-to-ts/src/lib/converters/object.converter';
+  convertToFiles,
+  convertToConstants,
+  convertToSingleObject,
+  mergeWithDefaults,
+} from 'svg-to-ts';
 
-interface Options extends CommonConversionOptions, JsonObject {
-  generateCompleteIconSet: boolean; // TODO: should this be exportCompleteIconSet
-}
+interface Options extends CommonConversionOptions, JsonObject {}
 
-export default createBuilder<Options>((conversionOptions: Options, context: BuilderContext) => {
+export default createBuilder<Options>((options: Options, context: BuilderContext) => {
   return new Promise<BuilderOutput>(async (resolve, reject) => {
     try {
-      if (!conversionOptions) {
+      if (!options.conversionType) {
         reject();
       }
 
+      const conversionOptions = await mergeWithDefaults(options);
       if (conversionOptions.conversionType === ConversionType.FILES) {
         context.logger.info('We are using the conversion type "files"');
         await convertToFiles((conversionOptions as unknown) as FileConversionOptions);
