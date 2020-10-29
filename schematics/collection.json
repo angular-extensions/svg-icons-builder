@@ -2,8 +2,9 @@
   "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
     "ng-add": {
-      "description": "A blank schematic.",
-      "factory": "./ng-add/index#ngAdd"
+      "description": "Add svg-to-ts to a project",
+      "factory": "./ng-add/index#ngAdd",
+      "aliases": ["install"]
     }
   }
 }
