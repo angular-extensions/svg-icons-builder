@@ -19,10 +19,16 @@ Angular CLI: `ng add @angular-extensions/svg-icons-builder`
 
 ### Configuring the builder
 
-To use the builder you need to add a new entry to your `architect` object inside your `angular.json`. In our example we call it `generate-icons`. You then need to specify the following properties:
+To use the builder you need to add a new entry to your `architect` object inside your `angular.json`. 
 
-- **Builder**: `"@angular-extensions/svg-icons-builder:svg-icons-builder"`
-- **Config**: A valid [svg-to-ts configuration](https://github.com/kreuzerk/svg-to-ts). ⚠️ the options depend on the `conversionType` and may therefore vary. Means, a configuration for the `convesionType: "files"` will look different than configuration for the `conversionType: "constants"`
+A valid [svg-to-ts configuration](https://github.com/kreuzerk/svg-to-ts). ⚠️ the options depend on the `conversionType` and may therefore vary. Means, a configuration for the `convesionType: "files"` will look different than configuration for the `conversionType: "constants"`. Each `conversionType` has it's own builder.
+
+In our example we call it `generate-icons`. You then need to specify the following properties:
+
+## `conversionType: constants`
+
+- **Builder**: `"@angular-extensions/svg-icons-builder:svg-icons-constants-builder"`
+- **Config**: [svg-to-ts constants config](https://github.com/kreuzerk/svg-to-ts#2-multiple-constants---treeshakable-and-typesafe-with-one-file-conversiontypeconstants)
 
 ```json
 "generate-icons": {
@@ -46,6 +52,68 @@ To use the builder you need to add a new entry to your `architect` object inside
     "compileSources": true
   }
 }
+```
+
+## `conversionType: files`
+
+- **Builder**: `"@angular-extensions/svg-icons-builder:svg-icons-files-builder"`
+- **Config**: [svg-to-ts files config](https://github.com/kreuzerk/svg-to-ts#3-tree-shakable-and-optimized-for-lazy-loading-conversiontypefiles)
+
+```json
+  "generate-icons": {
+    "builder": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
+    "options": {
+      "conversionType": "files",
+      "srcFiles": ["./projects/dinosaur-icons/icons/**/*.svg"],
+      "outputDirectory": "./projects/dinosaur-icons/icons",
+      "interfaceName": "DinosaurIcon",
+      "generateType": false,
+      "generateTypeObject": false,
+      "generateCompleteIconSet": false,
+      "exportCompleteIconSet": false,
+      "fileName": "dinosaur-icons",
+      "iconsFolderName": "dinosaur-icons",
+      "objectName": "dinosaur-icons",
+      "typeName": "dinosaurIcon",
+      "prefix": "dinosaurIcon",
+      "modelFileName": "dinosaur-icons",
+      "barrelFileName": "index",
+      "svgoConfig": {
+        "plugins": [
+          {
+            "cleanupAttrs": true
+          }
+        ]
+      },
+      "compileSources": true
+    }
+  }
+```
+
+## `conversionType: object`
+
+- **Builder**: `"@angular-extensions/svg-icons-builder:svg-icons-object-builder"`
+- **Config**: [svg-to-ts object config](https://github.com/kreuzerk/svg-to-ts#1-converting-to-a-single-object-conversiontypeobject)
+
+```json
+  "generate-icons": {
+    "builder": "@angular-extensions/svg-icons-builder:svg-icons-object-builder",
+    "options": {
+      "conversionType": "object",
+      "srcFiles": ["./projects/dinosaur-icons/icons/**/*.svg"],
+      "outputDirectory": "./projects/dinosaur-icons/icons",
+      "fileName": "dinosaur-icons",
+      "objectName": "dinosaur-icons",
+      "svgoConfig": {
+        "plugins": [
+          {
+            "cleanupAttrs": true
+          }
+        ]
+      },
+      "compileSources": true
+    }
+  }
 ```
 
 ### Run the builder
