@@ -1,9 +1,20 @@
 {
+  "$schema": "@angular-devkit/architect/src/builders-schema.json",
   "builders": {
-    "svg-icons-builder": {
-      "implementation": "./svg-icons-builder",
+    "svg-icons-constants-builder": {
+      "implementation": "./svg-icons-builder/constants",
       "schema": "./svg-icons-builder/schema.json",
-      "description": "Build SVG icons."
+      "description": "Build SVG icons using `constants` conversion type."
+    },
+    "svg-icons-object-builder": {
+      "implementation": "./svg-icons-builder/object",
+      "schema": "./svg-icons-builder/schema.json",
+      "description": "Build SVG icons using `objects` conversion type."
+    },
+    "svg-icons-files-builder": {
+      "implementation": "./svg-icons-builder/files",
+      "schema": "./svg-icons-builder/schema.json",
+      "description": "Build SVG icons using `files` conversion type."
     }
   }
 }
