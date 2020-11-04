@@ -66,7 +66,7 @@ In our example we call it `generate-icons`. You then need to specify the followi
     "options": {
       "conversionType": "files",
       "srcFiles": ["./projects/dinosaur-icons/icons/**/*.svg"],
-      "outputDirectory": "./projects/dinosaur-icons/icons",
+      "outputDirectory": "./dist/dinosaur-icons/icons",
       "interfaceName": "DinosaurIcon",
       "generateType": false,
       "generateTypeObject": false,
@@ -102,7 +102,7 @@ In our example we call it `generate-icons`. You then need to specify the followi
     "options": {
       "conversionType": "object",
       "srcFiles": ["./projects/dinosaur-icons/icons/**/*.svg"],
-      "outputDirectory": "./projects/dinosaur-icons/icons",
+      "outputDirectory": "./dist/dinosaur-icons/icons",
       "fileName": "dinosaur-icons",
       "objectName": "dinosaur-icons",
       "svgoConfig": {
