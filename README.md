@@ -19,7 +19,7 @@ Angular CLI: `ng add @angular-extensions/svg-icons-builder`
 
 ### Configuring the builder
 
-To use the builder you need to add a new entry to your `architect` object inside your `angular.json`. 
+To use the builder you need to add a new entry to your `architect` object inside your `angular.json`.
 
 A valid [svg-to-ts configuration](https://github.com/kreuzerk/svg-to-ts). ⚠️ the options depend on the `conversionType` and may therefore vary. Means, a configuration for the `convesionType: "files"` will look different than configuration for the `conversionType: "constants"`. Each `conversionType` has it's own builder.
 
@@ -32,24 +32,25 @@ In our example we call it `generate-icons`. You then need to specify the followi
 
 ```json
 "generate-icons": {
-  "builder": "@angular-extensions/svg-icons-builder:svg-icons-builder",
+  "builder": "@angular-extensions/svg-icons-builder:svg-icons-constants-builder",
   "options": {
-    "conversionType": "constants",
-    "srcFiles": ["./src/icons/*.svg"],
-    "outputDirectory": "./projects/dinosaur-icons/icons",
-    "interfaceName": "DinosaurIcon",
-    "typeName": "dinosaurIcon",
-    "prefix": "dinosaurIcon",
-    "modelFileName": "dinosaur-icon.model",
-    "svgoConfig": {
+      "conversionType": "constants",
+      "fileName": "myIcons",
+      "generateType": false,
+      "generateTypeObject": false,
+      "generateCompleteIconSet": true,
+      "srcFiles": ["./src/icons/*.svg"],
+      "outputDirectory": "./dist/icons",
+      "interfaceName": "DinosaurIcon",
+      "typeName": "dinosaurIcon",
+      "prefix": "dinosaurIcon",
+      "svgoConfig": {
       "plugins": [
-        {
-          "cleanupAttrs": true
-        }
-      ]
-    },
-    "additionalModelFile": "./projects/dinosaur-icons/src/lib",
-    "compileSources": true
+         {
+            "cleanupAttrs": true
+         }
+        ]
+      }
   }
 }
 ```
@@ -65,7 +66,7 @@ In our example we call it `generate-icons`. You then need to specify the followi
     "options": {
       "conversionType": "files",
       "srcFiles": ["./projects/dinosaur-icons/icons/**/*.svg"],
-      "outputDirectory": "./projects/dinosaur-icons/icons",
+      "outputDirectory": "./dist/dinosaur-icons/icons",
       "interfaceName": "DinosaurIcon",
       "generateType": false,
       "generateTypeObject": false,
@@ -101,7 +102,7 @@ In our example we call it `generate-icons`. You then need to specify the followi
     "options": {
       "conversionType": "object",
       "srcFiles": ["./projects/dinosaur-icons/icons/**/*.svg"],
-      "outputDirectory": "./projects/dinosaur-icons/icons",
+      "outputDirectory": "./dist/dinosaur-icons/icons",
       "fileName": "dinosaur-icons",
       "objectName": "dinosaur-icons",
       "svgoConfig": {
