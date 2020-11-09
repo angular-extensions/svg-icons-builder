@@ -2,24 +2,36 @@
   "name": "@angular-extensions/svg-icons-builder",
   "version": "0.0.0",
   "description": "A blank schematics",
-  "scripts": {
-    "build": "tsc -p tsconfig.json && npm run copy:files",
-    "build:watch": "tsc -p tsconfig.json --watch && npm run copy:files",
-    "copy:files": "cp ./package.json ./builders.json dist/ && cp ./svg-icons-builder/*.json ./dist/svg-icons-builder/ && cp ./schematics/*.json ./dist/schematics/",
-    "format:write": "prettier --write ./**/*.ts",
-    "test": "jest",
-    "test:watch": "jest --watch"
-  },
   "keywords": [
-    "schematics"
+    "Angular builder",
+    "schematics",
+    "SVG icons"
   ],
-  "author": "",
+  "licenses": [
+    "MIT"
+  ],
+  "homepage": "https://github.com/angular-extensions/svg-icons-builder",
+  "repository": "https://github.com/angular-extensions/svg-icons-builder",
+  "bugs": "https://github.com/angular-extensions/svg-icons-builder/issues",
+  "contributors": [
+    "Kayla Altepeter",
+    "Kevin Kreuzer"
+  ],
   "license": "MIT",
   "schematics": "./schematics/collection.json",
   "ng-add": {
     "save": "devDependencies"
   },
   "builders": "./builders.json",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && npm run copy:files",
+    "build:watch": "tsc -p tsconfig.json --watch && npm run copy:files",
+    "bump-version": "rjp package.json version $VERSION",
+    "copy:files": "cp ./package.json ./builders.json dist/ && cp ./svg-icons-builder/*.json ./dist/svg-icons-builder/ && cp ./schematics/*.json ./dist/schematics/ && cp ./README.md ./dist",
+    "format:write": "prettier --write ./**/*.ts",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
   "dependencies": {
     "@angular-devkit/core": "^10.1.6",
     "@angular-devkit/schematics": "^10.1.6",
@@ -30,6 +42,9 @@
     "@angular-devkit/architect": "^0.1001.7",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.11.1",
     "all-contributors-cli": "^6.19.0",
@@ -37,6 +52,7 @@
     "jest": "^26.6.1",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.1.0",
+    "replace-json-property": "^1.6.1",
     "ts-jest": "^26.4.2",
     "ts-node": "^9.0.0"
   },
