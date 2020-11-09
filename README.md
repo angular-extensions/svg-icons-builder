@@ -1,4 +1,4 @@
-# svg-icons-builder (WIP - not yet available on npm)
+# svg-icons-builder
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -19,7 +19,7 @@ Angular CLI: `ng add @angular-extensions/svg-icons-builder`
 
 ### Configuring the builder
 
-To use the builder you need to add a new entry to your `architect` object inside your `angular.json`. 
+To use the builder you need to add a new entry to your `architect` object inside your `angular.json`.
 
 A valid [svg-to-ts configuration](https://github.com/kreuzerk/svg-to-ts). ⚠️ the options depend on the `conversionType` and may therefore vary. Means, a configuration for the `convesionType: "files"` will look different than configuration for the `conversionType: "constants"`. Each `conversionType` has it's own builder.
 
