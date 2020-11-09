@@ -1,4 +1,4 @@
-# svg-icons-builder (WIP - not yet available on npm)
+# svg-icons-builder
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 

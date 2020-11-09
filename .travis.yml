@@ -19,4 +19,4 @@ jobs:
       script:
         - npm run build
         - npx semantic-release
-      if: branch = master
+      if: branch = main
