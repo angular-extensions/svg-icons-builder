@@ -52,5 +52,5 @@
       "visible": false
     }
   },
-  "required": ["name", "iconType", "iconInterface", "iconLibraryName", "installLibrary"]
+  "required": ["name", "iconType", "iconInterface", "iconImportPath", "installLibrary"]
 }
