@@ -5,6 +5,11 @@
       "description": "Add svg-to-ts to a project",
       "factory": "./ng-add/index#ngAdd",
       "aliases": ["install"]
+    },
+    "ng-generate-icon-lib": {
+      "description": "Scaffold Angular icon library code in your project",
+      "factory": "./ng-generate-icon-lib/index#generateIconLibrary",
+      "schema": "./ng-generate-icon-lib/schema.json"
     }
   }
 }

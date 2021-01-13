@@ -20,5 +20,5 @@
     "types": ["node"]
   },
   "include": ["schematics/**/*", "svg-icons-builder"],
-  "exclude": ["svg-icons-builder/*/files/**/*", "**/*.spec.ts"]
+  "exclude": ["svg-icons-builder/*/files/**/*", "schematics/*/files/**/*", "**/*.spec.ts"]
 }
