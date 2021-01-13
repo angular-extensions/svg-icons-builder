@@ -27,7 +27,7 @@
     "build": "tsc -p tsconfig.json && npm run copy:files",
     "build:watch": "tsc -p tsconfig.json --watch && npm run copy:files",
     "bump-version": "rjp package.json version $VERSION",
-    "copy:files": "cp ./package.json ./builders.json dist/ && cp ./svg-icons-builder/*.json ./dist/svg-icons-builder/ && cp ./schematics/*.json ./dist/schematics/ && cp ./README.md ./dist",
+    "copy:files": "cp ./package.json ./builders.json dist/ && cp ./README.md ./dist",
     "format:write": "prettier --write ./**/*.ts",
     "test": "jest",
     "test:watch": "jest --watch"
