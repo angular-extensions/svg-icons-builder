@@ -27,8 +27,8 @@
     "build": "tsc -p tsconfig.json && npm run copy:generate-icon-lib-templates && npm run copy:build-assets",
     "build:watch": "tsc -p tsconfig.json --watch && && npm run copy:generate-icon-lib-templates && npm run copy:build-assets",
     "bump-version": "rjp package.json version $VERSION",
-    "copy:build-assets": "cp ./package.json ./builders.json dist/ && cp ./README.md ./dist",
-    "copy:generate-icon-lib-templates": "mkdir dist/schematics/ng-generate-icon-lib/files && cp ./schematics/ng-generate-icon-lib/files/**/* dist/schematics/ng-generate-icon-lib/files",
+    "copy:build-assets": "cpx ./package.json dist && cpx ./builders.json dist && cpx ./README.md dist",
+    "copy:generate-icon-lib-templates": "cpx './schematics/ng-generate-icon-lib/files/**/*.ts' dist/schematics/ng-generate-icon-lib/files",
     "format:write": "prettier --write ./**/*.ts",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -50,6 +50,7 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.11.1",
     "all-contributors-cli": "^6.19.0",
+    "cpx": "^1.5.0",
     "husky": "^4.3.0",
     "jest": "^26.6.1",
     "prettier": "^2.1.2",
