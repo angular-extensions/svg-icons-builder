@@ -24,10 +24,11 @@
   },
   "builders": "./builders.json",
   "scripts": {
-    "build": "tsc -p tsconfig.json && npm run copy:files",
-    "build:watch": "tsc -p tsconfig.json --watch && npm run copy:files",
+    "build": "tsc -p tsconfig.json && npm run copy:generate-icon-lib-templates && npm run copy:build-assets",
+    "build:watch": "tsc -p tsconfig.json --watch && && npm run copy:generate-icon-lib-templates && npm run copy:build-assets",
     "bump-version": "rjp package.json version $VERSION",
-    "copy:files": "cp ./package.json ./builders.json dist/ && cp ./README.md ./dist",
+    "copy:build-assets": "cp ./package.json ./builders.json dist/ && cp ./README.md ./dist",
+    "copy:generate-icon-lib-templates": "mkdir dist/schematics/ng-generate-icon-lib/files && cp ./schematics/ng-generate-icon-lib/files/**/* dist/schematics/ng-generate-icon-lib/files",
     "format:write": "prettier --write ./**/*.ts",
     "test": "jest",
     "test:watch": "jest --watch"
