@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/angular-extensions/svg-icons-builder/compare/v1.0.0...v1.1.0) (2021-01-18)
+
+
+### Bug Fixes
+
+* 🐛 adjust schema.json ([cfb1a76](https://github.com/angular-extensions/svg-icons-builder/commit/cfb1a76dce128af4645a77e34522061a1b5d969c))
+
+
+### Features
+
+* 🎸 add scheamtics to generate an icon library ([43e19f9](https://github.com/angular-extensions/svg-icons-builder/commit/43e19f927ec6263e8eee9cda4e77e778d3feeff7))
+
 # 1.0.0 (2020-11-16)
 
 ### Bug Fixes
