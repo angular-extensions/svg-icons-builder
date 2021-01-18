@@ -12,6 +12,7 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "outDir": "dist",
+    "resolveJsonModule": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "sourceMap": true,
@@ -19,6 +20,6 @@
     "target": "es6",
     "types": ["node"]
   },
-  "include": ["schematics/**/*", "svg-icons-builder"],
-  "exclude": ["svg-icons-builder/*/files/**/*", "**/*.spec.ts"]
+  "include": ["schematics/**/*", "schematics/**/*.json", "svg-icons-builder", "svg-icons-builder/**/*.json"],
+  "exclude": ["svg-icons-builder/*/files/**/*", "schematics/*/files/**/*", "**/*.spec.ts"]
 }
