@@ -16,13 +16,16 @@ export class <%= capitalize(camelize(name)) %>Component {
     private svgIcon: SVGElement;
 
     @Input()
-    set name(iconName: <%= iconInterface %>) {
+    set name(iconName: <%= iconType %>) {
         if (this.svgIcon) {
             this.element.nativeElement.removeChild(this.svgIcon);
         }
         const svgData = this.<%= camelize(name) %>Registry.getIcon(iconName);
-        this.svgIcon = this.svgElementFromString(svgData);
-        this.element.nativeElement.appendChild(this.svgIcon);
+
+        if(svgData) {
+            this.svgIcon = this.svgElementFromString(svgData);
+            this.element.nativeElement.appendChild(this.svgIcon);
+        }
     }
 
     constructor(private element: ElementRef, private <%= camelize(name) %>Registry: <%= capitalize(camelize(name)) %>Registry,
