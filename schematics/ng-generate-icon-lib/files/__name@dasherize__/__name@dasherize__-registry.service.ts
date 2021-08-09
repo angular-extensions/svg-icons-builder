@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { <%= iconType %>, <%= iconInterface %>} from '<%= iconImportPath %>';
+import { <%= iconType %>, <%= iconInterface %> } from '<%= iconImportPath %>';
 
 @Injectable({
     providedIn: 'any'

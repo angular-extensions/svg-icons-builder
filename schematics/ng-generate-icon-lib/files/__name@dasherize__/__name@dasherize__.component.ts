@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Inject, Input, Optional} from '@angular/core';
-import {DOCUMENT} from '@angular/common';
-import {<%= iconInterface %>} from '<%= iconImportPath %>';
+import { ChangeDetectionStrategy, Component, ElementRef, Inject, Input, Optional } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { <%= iconInterface %> } from '<%= iconImportPath %>';
 
-import {<%= capitalize(camelize(name)) %>Registry} from './<%= dasherize(name) %>-registry.service';
+import { <%= capitalize(camelize(name)) %>Registry } from './<%= dasherize(name) %>-registry.service';
 
 @Component({
     selector: '<%= dasherize(name) %>',

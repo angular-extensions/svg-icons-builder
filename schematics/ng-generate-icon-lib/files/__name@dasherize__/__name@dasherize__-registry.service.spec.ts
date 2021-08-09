@@ -1,4 +1,4 @@
-import {<%= capitalize(camelize(name)) %>Registry} from './<%= dasherize(name) %>-registry.service';
+import { <%= capitalize(camelize(name)) %>Registry } from './<%= dasherize(name) %>-registry.service';
 
 describe('<%= capitalize(camelize(name)) %>Registry', () => {
     let sut: <%=capitalize(camelize(name)) %>Registry;

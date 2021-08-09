@@ -8,15 +8,15 @@ import {
   Tree,
   Rule,
   SchematicContext,
-  SchematicsException
+  SchematicsException,
 } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
 import { parseName } from '@schematics/angular/utility/parse-name';
-import {NodePackageInstallTask} from '@angular-devkit/schematics/tasks';
+import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 
 // You don't have to export the function as default. You can also have more than one rule factory
 // per file.
-export function generateIconLibrary(_options: any): Rule {
+export function generateIconLibrary(options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
     const workspaceAsBuffer = tree.read('angular.json');
     if (!workspaceAsBuffer) {
@@ -25,35 +25,37 @@ export function generateIconLibrary(_options: any): Rule {
 
     const workspace = JSON.parse(workspaceAsBuffer.toString());
 
-    const projectName = _options.project || workspace.defaultProject;
+    const projectName = options.project || workspace.defaultProject;
     const project = workspace.projects[projectName];
 
     if (project.projectType === 'application') {
       throw new SchematicsException(
-          'The "generateLibrary" schematics works only for the "library" projects, please specify correct project using --project flag'
+        'The "generateLibrary" schematics works only for the "library" projects, please specify correct project using --project flag'
       );
     }
 
-    const path = _options.path || `${project.sourceRoot}/lib`;
-    const parsed = parseName(path, _options.name);
-    _options.name = parsed.name;
+    const path = options.path || `${project.sourceRoot}/lib`;
+    const parsed = parseName(path, options.name);
+    options.name = parsed.name;
     const sourceTemplate = url('./files');
 
     const sourceTemplateParametrized = apply(sourceTemplate, [
       template({
-        ..._options,
-        ...strings
+        ...options,
+        ...strings,
       }),
-      move(parsed.path)
+      move(parsed.path),
     ]);
 
     const rules = [mergeWith(sourceTemplateParametrized)];
 
-    if(_options.installLibrary) {
-      _context.addTask(new NodePackageInstallTask({
-        packageName: _options.iconImportPath
-      }));
+    if (options.installLibrary) {
+      _context.addTask(
+        new NodePackageInstallTask({
+          packageName: options.iconImportPath,
+        })
+      );
     }
     return chain(rules);
-  }
+  };
 }

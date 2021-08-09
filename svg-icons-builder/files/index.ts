@@ -1,11 +1,6 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
-import {
-  ConversionType,
-  FileConversionOptions,
-  convertToFiles,
-  mergeWithDefaults,
-} from 'svg-to-ts';
+import { ConversionType, FileConversionOptions, convertToFiles, mergeWithDefaults } from 'svg-to-ts';
 
 interface Options extends FileConversionOptions {}
 

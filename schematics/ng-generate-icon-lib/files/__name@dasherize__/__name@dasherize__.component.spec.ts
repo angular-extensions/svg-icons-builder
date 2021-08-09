@@ -1,4 +1,4 @@
-import {<%= capitalize(camelize(name)) %>Component} from './<%= dasherize(name) %>.component';
+import { <%= capitalize(camelize(name)) %>Component } from './<%= dasherize(name) %>.component';
 
 describe('<%= capitalize(camelize(name)) %>Component', () => {
 

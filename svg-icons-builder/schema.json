@@ -8,17 +8,27 @@
       "type": "string",
       "description": "Converting your icons to a single object, converting your icons to constants or converting your icons to single files.",
       "default": "constants",
-      "enum": ["object", "constants", "files"]
+      "enum": [
+        "object",
+        "constants",
+        "files"
+      ]
     }
   },
   "allOf": [
     {
       "if": {
-        "properties": { "conversionType": { "const": "constants" } }
+        "properties": {
+          "conversionType": {
+            "const": "constants"
+          }
+        }
       },
       "then": {
         "allOf": [
-          { "$ref": "#/definitions/baseOptions" },
+          {
+            "$ref": "#/definitions/baseOptions"
+          },
           {
             "properties": {
               "fileName": {
@@ -39,11 +49,6 @@
               "generateTypeObject": {
                 "type": "boolean",
                 "description": "Generate type object.",
-                "default": false
-              },
-              "generateCompleteIconSet": {
-                "type": "boolean",
-                "description": "TODO: is this the same as: exportCompleteIconSet",
                 "default": false
               },
               "exportCompleteIconSet": {
@@ -67,7 +72,6 @@
               "typeName",
               "generateType",
               "generateTypeObject",
-              "generateCompleteIconSet",
               "prefix",
               "interfaceName"
             ]
@@ -77,11 +81,17 @@
     },
     {
       "if": {
-        "properties": { "conversionType": { "const": "object" } }
+        "properties": {
+          "conversionType": {
+            "const": "object"
+          }
+        }
       },
       "then": {
         "allOf": [
-          { "$ref": "#/definitions/baseOptions" },
+          {
+            "$ref": "#/definitions/baseOptions"
+          },
           {
             "properties": {
               "fileName": {
@@ -89,24 +99,33 @@
                 "description": "File name of the generated constants file.",
                 "default": "my-icons"
               },
-              "obejctName": {
+              "objectName": {
                 "type": "string",
-                "description": "name of the exported const - if nothing is set - default export will be used",
+                "description": "Name of the exported const - if nothing is set - default export will be used.",
                 "default": "icons"
               }
             },
-            "required": ["fileName", "objectName"]
+            "required": [
+              "fileName",
+              "objectName"
+            ]
           }
         ]
       }
     },
     {
       "if": {
-        "properties": { "conversionType": { "const": "files" } }
+        "properties": {
+          "conversionType": {
+            "const": "files"
+          }
+        }
       },
       "then": {
         "allOf": [
-          { "$ref": "#/definitions/baseOptions" },
+          {
+            "$ref": "#/definitions/baseOptions"
+          },
           {
             "properties": {
               "typeName": {
@@ -141,16 +160,16 @@
               },
               "modelFileName": {
                 "type": "string",
-                "description": "",
+                "description": "File name of the generated file.",
                 "default": "my-icons.model"
               },
               "additionalModelOutputPath": {
                 "type": "string",
-                "description": "if a path is specified we will generate an additional file containing interface and type to this path - can be useful to improve type safety"
+                "description": "If a path is specified we will generate an additional file containing interface and type to this path - can be useful to improve type safety"
               },
               "iconsFolderName": {
                 "type": "string",
-                "description": "name of the folder we will build the TypeScript files to",
+                "description": "Name of the folder we will build the TypeScript files to",
                 "default": "build"
               },
               "compileSources": {
@@ -160,7 +179,7 @@
               },
               "barrelFileName": {
                 "type": "string",
-                "description": "name of the generated type",
+                "description": "Name of the generated type",
                 "default": "index"
               }
             },
@@ -181,7 +200,9 @@
       }
     }
   ],
-  "required": ["conversionType"],
+  "required": [
+    "conversionType"
+  ],
   "definitions": {
     "baseOptions": {
       "type": "object",
@@ -209,7 +230,17 @@
           "type": "string",
           "description": "Delimiter which is used to generate the types and name properties.",
           "default": "SNAKE",
-          "enum": ["CAMEL", "KEBAB", "SNAKE", "UPPER"]
+          "enum": [
+            "CAMEL",
+            "KEBAB",
+            "SNAKE",
+            "UPPER"
+          ]
+        },
+        "verbose": {
+          "type": "boolean",
+          "default": "false",
+          "description": "Defines if the log should contain additional information. Can be useful for debugging."
         }
       }
     }
