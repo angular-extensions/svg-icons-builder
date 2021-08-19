@@ -17,7 +17,7 @@ NPM: `npm install @angular-extensions/svg-icons-builder`
 
 Angular CLI: `ng add @angular-extensions/svg-icons-builder`
 
-### Configuring the builder
+### Configure the builder
 
 To use the builder you need to add a new entry to your `architect` object inside your `angular.json`.
 
