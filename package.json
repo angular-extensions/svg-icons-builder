@@ -1,6 +1,6 @@
 {
   "name": "@angular-extensions/svg-icons-builder",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "The svg-icons-builder is a Angular builder for the svg-to-ts project",
   "keywords": [
     "Angular builder",
@@ -34,7 +34,7 @@
     "@angular-devkit/core": "^10.1.6",
     "@angular-devkit/schematics": "^10.2.1",
     "@schematics/angular": "^11.0.6",
-    "svg-to-ts": "^6.0.1",
+    "svg-to-ts": "^7.1.0",
     "typescript": "~4.0.2"
   },
   "devDependencies": {
