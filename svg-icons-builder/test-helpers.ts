@@ -7,10 +7,6 @@ export const defaultCommonOptions = (): CommonConversionOptions => ({
   delimiter: Delimiter.CAMEL,
   verbose: false,
   svgoConfig: {
-    plugins: [
-      {
-        cleanupAttrs: true,
-      },
-    ],
+    plugins: ['cleanupAttrs'],
   },
 });

@@ -45,11 +45,7 @@ In our example we call it `generate-icons`. You then need to specify the followi
       "typeName": "dinosaurIcon",
       "prefix": "dinosaurIcon",
       "svgoConfig": {
-      "plugins": [
-         {
-            "cleanupAttrs": true
-         }
-        ]
+        "plugins": ["cleanupAttrs"]
       }
   }
 }
@@ -80,11 +76,7 @@ In our example we call it `generate-icons`. You then need to specify the followi
       "modelFileName": "dinosaur-icons",
       "barrelFileName": "index",
       "svgoConfig": {
-        "plugins": [
-          {
-            "cleanupAttrs": true
-          }
-        ]
+        "plugins": ["cleanupAttrs"]
       },
       "compileSources": true
     }
@@ -106,11 +98,7 @@ In our example we call it `generate-icons`. You then need to specify the followi
       "fileName": "dinosaur-icons",
       "objectName": "dinosaur-icons",
       "svgoConfig": {
-        "plugins": [
-          {
-            "cleanupAttrs": true
-          }
-        ]
+        "plugins": ["cleanupAttrs"]
       },
       "compileSources": true
     }
