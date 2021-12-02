@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/angular-extensions/svg-icons-builder/compare/v2.0.0...v3.0.0) (2021-12-02)
+
+
+### Features
+
+* 🎸 (deps) update svg-to-ts to v7 ([a376f9d](https://github.com/angular-extensions/svg-icons-builder/commit/a376f9d8c1df8574eac7f9ecabdd63bbaf2cd082))
+
+
+### BREAKING CHANGES
+
+* 🧨 Update svg-to-ts to v7
+
 # [2.0.0](https://github.com/angular-extensions/svg-icons-builder/compare/v1.1.0...v2.0.0) (2021-08-19)
 
 
