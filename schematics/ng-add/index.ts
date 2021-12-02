@@ -1,7 +1,7 @@
 import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 
-const svgToTsVersion = '^6.0.1';
+const svgToTsVersion = '^7.1.0';
 
 export function ngAdd(_options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
