@@ -1,15 +1,17 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
-import { ConstantsConversionOptions, ConversionType, convertToConstants, mergeWithDefaults } from 'svg-to-ts';
+import { ConstantsConversionOptions, convertToConstants, mergeWithDefaults } from 'svg-to-ts';
 
-interface Options extends ConstantsConversionOptions {}
+interface Options extends ConstantsConversionOptions {
+  conversionType: string
+}
 
 // Using `Options & JsonObject` instead of extending JsonObject because of optional boolean
 export default createBuilder<Options & JsonObject>((options: Options, context: BuilderContext) => {
   return new Promise<BuilderOutput>(async (resolve, reject) => {
     try {
-      if (options.conversionType !== ConversionType.CONSTANTS) {
-        reject(new Error(`This builder only supports '${ConversionType.CONSTANTS}' conversionType.`));
+      if (options.conversionType !== 'constants') {
+        reject(new Error(`This builder only supports constants conversionType.`));
       }
 
       const conversionOptions = await mergeWithDefaults(options);
