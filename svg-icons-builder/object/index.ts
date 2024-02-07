@@ -1,18 +1,19 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
-import { JsonObject } from '@angular-devkit/core';
-import { ConversionType, ObjectConversionOptions, convertToSingleObject, mergeWithDefaults } from 'svg-to-ts';
+import { ObjectConversionOptions, convertToSingleObject, mergeWithDefaults } from 'svg-to-ts';
 
-interface Options extends ObjectConversionOptions, JsonObject {}
+interface Options extends ObjectConversionOptions {
+  conversionType: string
+}
 
 export default createBuilder<Options>((options: Options, context: BuilderContext) => {
   return new Promise<BuilderOutput>(async (resolve, reject) => {
     try {
-      if (options.conversionType !== ConversionType.OBJECT) {
-        reject(new Error(`This builder only supports '${ConversionType.OBJECT}' conversionType.`));
+      if (options.conversionType !== 'object') {
+        reject(new Error(`This builder only supports object conversionType.`));
       }
 
       const conversionOptions = await mergeWithDefaults(options);
-      if (conversionOptions.conversionType === ConversionType.OBJECT) {
+      if (conversionOptions.conversionType === 'object') {
         context.logger.info('We are using the conversion type "object"');
         await convertToSingleObject(conversionOptions);
       }
