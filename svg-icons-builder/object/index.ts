@@ -1,5 +1,5 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
-import { ObjectConversionOptions, convertToSingleObject, mergeWithDefaults } from 'svg-to-ts';
+import { ObjectConversionOptions, convertToSingleObject } from 'svg-to-ts';
 
 interface Options extends ObjectConversionOptions {
   conversionType: string
@@ -12,10 +12,9 @@ export default createBuilder<Options>((options: Options, context: BuilderContext
         reject(new Error(`This builder only supports object conversionType.`));
       }
 
-      const conversionOptions = await mergeWithDefaults(options);
-      if (conversionOptions.conversionType === 'object') {
+      if (options.conversionType === 'object') {
         context.logger.info('We are using the conversion type "object"');
-        await convertToSingleObject(conversionOptions);
+        await convertToSingleObject(options);
       }
 
       resolve({ success: true });
