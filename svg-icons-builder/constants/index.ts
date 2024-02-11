@@ -1,6 +1,6 @@
 import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { JsonObject } from '@angular-devkit/core';
-import { ConstantsConversionOptions, convertToConstants, mergeWithDefaults } from 'svg-to-ts';
+import { ConstantsConversionOptions, convertToConstants } from 'svg-to-ts';
 
 interface Options extends ConstantsConversionOptions {
   conversionType: string
@@ -14,9 +14,8 @@ export default createBuilder<Options & JsonObject>((options: Options, context: B
         reject(new Error(`This builder only supports constants conversionType.`));
       }
 
-      const conversionOptions = await mergeWithDefaults(options);
       context.logger.info('We are using the conversion type "constants"');
-      await convertToConstants((conversionOptions as unknown) as ConstantsConversionOptions);
+      await convertToConstants((options as unknown) as ConstantsConversionOptions);
 
       resolve({ success: true });
       context.reportStatus(`Done.`);
