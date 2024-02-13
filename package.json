@@ -28,8 +28,7 @@
     "copy:generate-icon-lib-templates": "copyfiles schematics/ng-generate-icon-lib/files/**/*.ts dist/schematics/ng-generate-icon-lib/files/_name@dasherize_ -f",
     "format:write": "prettier --write ./**/*.ts",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "prepare": "husky install"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@angular-devkit/core": "13.3.9",
