@@ -1,6 +1,6 @@
 {
   "name": "@angular-extensions/svg-icons-builder",
-  "version": "8.0.0",
+  "version": "11.0.0",
   "description": "The svg-icons-builder is a Angular builder for the svg-to-ts project",
   "keywords": [
     "Angular builder",
