@@ -68,7 +68,6 @@ In our example we call it `generate-icons`. You then need to specify the followi
       "generateTypeObject": false,
       "generateCompleteIconSet": false,
       "exportCompleteIconSet": false,
-      "fileName": "dinosaur-icons",
       "iconsFolderName": "dinosaur-icons",
       "objectName": "dinosaur-icons",
       "typeName": "dinosaurIcon",
