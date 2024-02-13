@@ -25,7 +25,7 @@
     "build:watch": "tsc -p tsconfig.json --watch && && npm run copy:generate-icon-lib-templates && npm run copy:build-assets",
     "bump-version": "rjp package.json version $VERSION",
     "copy:build-assets": "copyfiles package.json dist && cp builders.json dist && cp README.md dist",
-    "copy:generate-icon-lib-templates": "copyfiles schematics/ng-generate-icon-lib/files/**/*.ts dist/schematics/ng-generate-icon-lib/files -f",
+    "copy:generate-icon-lib-templates": "copyfiles schematics/ng-generate-icon-lib/files/**/*.ts dist/schematics/ng-generate-icon-lib/files/_name@dasherize_ -f",
     "format:write": "prettier --write ./**/*.ts",
     "test": "jest",
     "test:watch": "jest --watch",
